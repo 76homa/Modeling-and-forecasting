@@ -8,13 +8,13 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split  # Add this import
 
 # Read data using pandas
-excel_file_path = 'C:/Users/homa.behmardi/Downloads/Sirjan.xlsx'
+excel_file_path = 'C:\\Users\\homa.behmardi\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anaconda3 (64-bit)\\clustered_data\\cluster_0.xlsx'
 sheet_name = 'Sheet1'
 data = pd.read_excel(excel_file_path, sheet_name=sheet_name)
 
 # Replace X and y with your actual feature and target variable data
-X = data[['thr', 'bw', 'PRB']]
-y = data['payload']
+X = data[['DL_PRB_Utilization_Rate(Ericsson_LTE_Sector)', 'Average_Reported_CQI(Ericsson_LTE_Sector)', 'DL_Spectral_efficiency(Ericsson_LTE_Sector)']]
+y = data['Average_UE_DL_Throughput(Mbps)(Ericsson_LTE_Sector)']  # Replace with your target variable (e.g., y = data['Payload'])
 
 # Split the data into train and test sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
